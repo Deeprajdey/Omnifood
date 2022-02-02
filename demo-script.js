@@ -34,9 +34,11 @@ links.forEach((link) => {
 
 menu.addEventListener("click", (e) => {
   nav.classList.add("ham-menu");
+  nav.style.position = "fixed";
 });
 close.addEventListener("click", (e) => {
   nav.classList.remove("ham-menu");
+  nav.style.position = "";
 });
 
 // window.scrollTo({
@@ -59,3 +61,12 @@ const observer = new IntersectionObserver(
   }
 );
 observer.observe(hero);
+
+const navHandler = (x) => {
+  if (x.matches) nav.style.position = "relative";
+  else nav.style.position = "absolute";
+};
+
+let condition = window.matchMedia("(min-width: 961px)");
+handler(condition);
+x.addEventListener("change", handler);
