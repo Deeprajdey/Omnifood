@@ -64,9 +64,10 @@ observer.observe(hero);
 
 const navHandler = (x) => {
   if (x.matches) nav.style.position = "relative";
+  else if (nav.classList.contains("ham-menu")) nav.style.position = "fixed";
   else nav.style.position = "absolute";
 };
 
 let condition = window.matchMedia("(min-width: 961px)");
-handler(condition);
-x.addEventListener("change", handler);
+navHandler(condition);
+condition.addEventListener("change", navHandler);
